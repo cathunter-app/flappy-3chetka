@@ -1,0 +1,20 @@
+*{box-sizing:border-box}html,body{margin:0;padding:0;height:100%;background:#cfe9ff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,'Noto Sans',sans-serif;color:#0b1f32}
+#game-root{position:relative;width:100%;height:100vh;overflow:hidden}
+#game{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+#hud{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:center;padding:8px 10px;pointer-events:none}
+#hud .left,#hud .right{display:flex;align-items:center;gap:10px;pointer-events:auto}
+#score{font-weight:800;font-size:28px;line-height:1;padding:6px 10px;border-radius:10px;background:rgba(255,255,255,.6);backdrop-filter:blur(5px);box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.diff-label{display:flex;gap:8px;align-items:center;font-size:12px;padding:6px 8px;border-radius:10px;background:rgba(255,255,255,.6);backdrop-filter:blur(5px);box-shadow:0 2px 8px rgba(0,0,0,.15)}
+select{border:1px solid #7aa3c7;border-radius:8px;padding:4px 6px;background:white}
+#toast{position:absolute;left:50%;top:20%;transform:translateX(-50%);background:rgba(255,255,255,.8);padding:10px 14px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.15);font-weight:700}
+.modal{position:absolute;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center}
+.panel{background:linear-gradient(180deg, #ffffff 0%, #eef7ff 100%);border:1px solid #a9cce9;border-radius:16px;box-shadow:0 18px 60px rgba(0,0,0,.25);padding:18px 18px 22px;width:min(92vw,520px)}
+.panel.wide{width:min(95vw,900px)}
+.panel h2{margin:6px 0 8px 0}
+.panel .big{font-size:22px;margin:4px 0 8px 0}
+.panel .buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+button{padding:10px 12px;border-radius:12px;border:1px solid #7aa3c7;background:#e7f2ff;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(.98)}
+#exportArea{width:100%;height:160px;margin-top:10px}
+a#downloadStory{display:none}
+@media (max-width:600px){#score{font-size:22px}}

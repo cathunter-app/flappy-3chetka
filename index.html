@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <title>Flappy Cat — Istanbul</title>
+  <link rel="preload" as="image" href="assets/cat.png">
+  <link rel="preload" as="image" href="assets/logo.png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-root">
+    <canvas id="game"></canvas>
+    <div id="hud">
+      <div class="left">
+        <span id="score">0</span>
+      </div>
+      <div class="right">
+        <label class="diff-label">difficulty
+          <select id="difficulty">
+            <option value="easy">easy</option>
+            <option value="normal" selected>normal</option>
+            <option value="hard">hard</option>
+            <option value="insane">insane</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <div id="toast" hidden>tap / click to fly</div>
+
+    <div id="gameover" class="modal" hidden>
+      <div class="panel">
+        <h2>Game Over</h2>
+        <p class="big">Score: <span id="finalScore">0</span></p>
+        <p>Best: <span id="bestScore">0</span></p>
+        <div class="buttons">
+          <button id="btnRestart">Play again</button>
+          <button id="btnStory">Save story image</button>
+        </div>
+        <a id="downloadStory" download="flappy-cat-story.png" hidden>Download</a>
+        <canvas id="storyCanvas" width="1080" height="1920" hidden></canvas>
+      </div>
+    </div>
+
+    <div id="admin" class="modal" hidden>
+      <div class="panel wide">
+        <h2>Admin panel</h2>
+        <p><strong>Unique players:</strong> <span id="uniquePlayers">0</span> <em id="uniNote"></em></p>
+        <h3>Top-10 scores</h3>
+        <ol id="topList"></ol>
+        <div class="buttons">
+          <button id="btnExport">Export CSV</button>
+          <button id="btnClear">Clear local stats</button>
+          <button id="btnCloseAdmin">Close</button>
+        </div>
+        <textarea id="exportArea" readonly></textarea>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
