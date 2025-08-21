@@ -26,7 +26,7 @@
   let state = 'menu'; // 'menu' | 'play' | 'dead'
   let lastT = 0;
   let cat, pipes, skyline, score, passedId;
-  let speedBase = 2.25; // world speed
+  let speedBase = 1.8; // world speed
 
   // Audio (procedural beeps via WebAudio)
   let audioCtx = null;
@@ -142,7 +142,7 @@
     if (cat.y + cat.h > h) { stopGame(); }
 
     // Pipes
-    const speed = speedBase * DPR * (dt/16.67) * 3; // tuned
+    const speed = speedBase * DPR * (dt/16.67) * 2.5; // tuned
     pipes.forEach(p => p.x -= speed);
 
     // Recycle pipes & scoring
