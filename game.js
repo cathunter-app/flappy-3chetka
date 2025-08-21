@@ -236,18 +236,22 @@
     flap();
   };
   canvas.addEventListener('pointerdown', onPointer);
-  window.addEventListener('keydown', (e)=>{
-    if(e.code === 'Space' || e.code === 'ArrowUp'){ Audio.unlock(); flap(); }
-    if(e.key === 'a' || e.key === 'A'){ openAdmin(); }
-  });
+window.addEventListener('keydown', (e)=>{
+  if(e.code === 'Space' || e.code === 'ArrowUp'){ Audio.unlock(); flap(); }
+  // Открывать/закрывать админку только по Shift + A
+  if((e.key === 'a' || e.key === 'A') && e.shiftKey){
+    if (adminModal.hidden) { updateAdmin(); adminModal.hidden = false; }
+    else { adminModal.hidden = true; }
+  }
+});
 
   // Show hint for 2 seconds
   setTimeout(()=>{ toast.hidden = true; }, 2200);
 
   // Allow admin via query
-  if(new URLSearchParams(location.search).get('admin') === '1'){
-    setTimeout(openAdmin, 200);
-  }
+ // if(new URLSearchParams(location.search).get('admin') === '1'){
+ //  setTimeout(openAdmin, 200);
+ // }
 
   function openAdmin(){
     updateAdmin();
@@ -432,6 +436,16 @@
   requestAnimationFrame(loop);
 
   function update(dt){
+     function update(dt){
+  // Фон живёт, но кот не падает до первого тапа
+  if(!started){
+    // лёгкое парение около стартовой точки
+    const targetY = (canvas.height/dpr)*0.45 + Math.sin(performance.now()/600)*3;
+    cat.y += (targetY - cat.y)*0.1;
+    return;
+  }
+  // ...дальше как было
+
     // Background evolve
     sky.t += dt;
 
