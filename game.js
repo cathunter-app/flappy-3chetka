@@ -133,7 +133,7 @@
     speedBase += 0.0003 * dt;
 
     // Cat physics
-    cat.vy += 0.16 * DPR * (dt/16.67);
+    cat.vy += 0.24 * DPR * (dt/16.67);
     cat.y += cat.vy;
     cat.rot = Math.max(-0.5, Math.min(1.0, (cat.vy / (10*DPR))));
 
